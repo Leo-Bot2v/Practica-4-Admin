@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}Mi Sitio{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="min-h-screen bg-gray-100 text-gray-900">
+    <header class="bg-white shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="{% url 'index' %}" class="text-xl font-semibold">MiSitio</a>
+        <nav class="space-x-4">
+          <a href="{% url 'index' %}" class="hover:underline">Inicio</a>
+          <a href="{% url 'espacios' %}" class="hover:underline">Espacios Publicitarios</a>
+          <a href="{% url 'compras' %}" class="hover:underline">Compras y Ventas</a>
+          <a href="{% url 'contacto' %}" class="hover:underline">Contáctanos</a>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-8">
+      {% block contenido %}{% endblock %}
+    </main>
+    <footer class="bg-white mt-12">
+      <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-600">© {{anio}} MiSitio</div>
+    </footer>
+  </body>
+</html>

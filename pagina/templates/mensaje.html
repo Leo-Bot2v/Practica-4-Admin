@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block titulo %}Mensaje enviado - MiSitio{% endblock %}
+{% block contenido %}
+<div class="bg-white p-6 rounded-lg shadow max-w-xl">
+  <h1 class="text-xl font-bold mb-2">Mensaje recibido</h1>
+  <p class="mb-4">Gracias, {{ nombre }}. Hemos recibido tu mensaje.</p>
+  <a href="{% url 'index' %}" class="px-3 py-2 border rounded">Volver al inicio</a>
+</div>
+{% endblock %}

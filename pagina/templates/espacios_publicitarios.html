@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block titulo %}Espacios Publicitarios - MiSitio{% endblock %}
+{% block contenido %}
+<h1 class="text-2xl font-bold mb-4">Espacios Publicitarios</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {% for espacio in espacios %}
+    <div class="bg-white p-4 rounded-lg shadow flex">
+      <img src="{{ espacio.imagen_url }}" alt="{{ espacio.titulo }}" class="w-32 h-24 object-cover rounded mr-4" />
+      <div>
+        <h3 class="font-semibold">{{ espacio.titulo }}</h3>
+        <p class="text-sm text-gray-600">{{ espacio.descripcion|truncatechars:120 }}</p>
+        <div class="mt-3">
+          <a href="{% url 'contacto' %}?interes={{ espacio.id }}" class="px-3 py-1 border rounded">Contactar</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No hay espacios disponibles.</p>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block titulo %}Inicio - MiSitio{% endblock %}
+{% block contenido %}
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+  <div>
+    <h1 class="text-3xl font-bold mb-4">Bienvenido a MiSitio</h1>
+    <p class="mb-4">Descripción breve de la página y lo que puedes hacer aquí.</p>
+    <div class="flex space-x-3">
+      <a href="{% url 'espacios' %}" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Ver espacios</a>
+      <a href="{% url 'compras' %}" class="px-4 py-2 border rounded-lg">Comprar / Vender</a>
+    </div>
+  </div>
+  <div>
+    <div class="relative">
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="/static/imagen_portada.jpg" alt="portada" class="object-cover w-full h-full rounded-lg shadow" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-10">
+  <h2 class="text-2xl font-semibold mb-4">Anuncios recientes</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {% for anuncio in anuncios %}
+      <article class="bg-white p-4 rounded-lg shadow">
+        <img src="{{ anuncio.imagen_url }}" alt="{{ anuncio.titulo }}" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="font-semibold">{{ anuncio.titulo }}</h3>
+        <p class="text-sm text-gray-600">{{ anuncio.descripcion|truncatechars:100 }}</p>
+      </article>
+    {% empty %}
+      <p>No hay anuncios.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

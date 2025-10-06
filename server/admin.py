@@ -43,4 +43,5 @@ admin.site.register(Materia, MateriaAdmin)
 
 class Programar_MateriaAdmin(admin.ModelAdmin):
     list_display = ('student', 'subject', 'is_active', 'fecha_programación')
-admin.site.register(Programar_Materia)
+
+admin.site.register(Programar_Materia, Programar_MateriaAdmin)

@@ -83,7 +83,7 @@ class Carrera(models.Model):
     def __str__(self):
         return self.nombrecarrera
     
-    class Mate:
+    class Meta:
         verbose_name = 'Carrera'
         verbose_name_plural = 'Carreras'
 
